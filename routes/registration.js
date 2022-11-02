@@ -34,15 +34,7 @@ router.post('/register',async(req,res)=>{
     
   });
 
-  router.post('/userdetail',checkLogin,(req,res)=>{
-    const user = req.user;
-    const email = user.email;
-    const data = {email : email};
-    getDetails(data).then( feed =>{
-      res.json(feed);
-    })
-      
-  });
+  
 
 
 

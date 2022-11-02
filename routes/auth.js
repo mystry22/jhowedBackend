@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const {getDetails} = require('../model/UserModel');
-const {signToken} = require('../functions/jwt');
+const {signToken,checkLogin} = require('../functions/jwt');
 const {comparePassword} = require('../functions/encrypt');
 
 router.post('/userlogin',(req,res)=>{
@@ -29,6 +29,16 @@ router.post('/userlogin',(req,res)=>{
          }
      });
 })
+
+router.post('/userdetail',checkLogin,(req,res)=>{
+    const user = req.user;
+    const email = user.email;
+    const data = {email : email};
+    getDetails(data).then( feed =>{
+      res.json(feed);
+    })
+      
+});
 
 
 
