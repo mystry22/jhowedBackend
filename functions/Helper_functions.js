@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const {setUserOTP, updateToken} = require('../model/TokenModel');
+//const {setUserOTP, updateToken} = require('../model/TokenModel');
 
 // Email Transporter
 const transport =()=>{
@@ -18,18 +18,7 @@ const transport =()=>{
 
       return transport;
 }
-// generate OTP
-const genOTP =()=>{
-    const min =1000;
-    const max = 9999;
-    const delta = max-min;
-    const gen = Math.random();
-    const initVal = delta * gen;
-    const floored = Math.floor(initVal);
-    const conToString = floored.toString();
-    const OTP = conToString;
-    return OTP;
-}
+
 
 // get today's date
 const toDate =()=>{

@@ -5,6 +5,7 @@ const db_conn = require('./config/db');
 const cors = require('cors');
 const registration = require('./routes/registration');
 const auth = require('./routes/auth');
+const deli = require('./routes/operations');
 
 
 
@@ -20,6 +21,7 @@ app.use(fileupload());
 
 app.use('/api/registration',registration);
 app.use('/api/auth',auth);
+app.use('/api/deli',deli);
 
 
 const PORT = process.env.PORT ||3222;

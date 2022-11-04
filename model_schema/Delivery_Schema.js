@@ -1,113 +1,89 @@
 const mongoose = require('mongoose');
 
-const Order = new mongoose.Schema({
+const Delivery_Schema = new mongoose.Schema({
+    order_id: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    order_email: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    deli_address: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    deli_lat: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    deli_lon: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    pick_address: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    pick_lat: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    pick_lon: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    handling: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    deli_status: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    deli_type: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    avatar: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    description: {
+        type: String,
+       
+    },
+    deli_phone: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
+    deli_name: {
+        type: String,
+        min: 2,
+        max: 1005
+    },
     order_date: {
         type: Date,
         
     },
-    first_name: {
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    last_name: {
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    address: {
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    user_ip: {
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    ref:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    phone:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    paystack_ref:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    prod_name:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    prod_id:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    price:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    subtotal:{
-        type: Number,
-        
-    },
-    size:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    image_link:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    qty:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    total:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    paid:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    bal:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    status:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    seen:{
-        type: String,
-        min: 2,
-        max: 1005
-    },
-    remark:{
-        type: String,
-       
-    },
-    
-    
+
+
     
     
  
 });
 
-module.exports = mongoose.model('Order',Order);
+module.exports = mongoose.model('Delivery',Delivery_Schema);
