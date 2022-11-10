@@ -13,6 +13,12 @@ const allrequests = async()=>{
     return allreqs;
 }
 
+const myorders = async(data)=>{
+    const allreqs = await Delivery_Schema.find(data);
+    return allreqs;
+}
+
 
 module.exports.requestDelivery = requestDelivery;
 module.exports.allrequests = allrequests;
+module.exports.myorders = myorders;

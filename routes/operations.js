@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { requestDelivery, allrequests } = require('../model/Delivery_Model');
+const { requestDelivery, allrequests, myorders} = require('../model/Delivery_Model');
 const { signToken, checkLogin } = require('../functions/jwt');
 const { comparePassword } = require('../functions/encrypt');
 const { cloudinary } = require('../functions/cloudinary')
@@ -81,6 +81,21 @@ router.post('/requestdelivery', checkLogin, async (req, res) => {
     }
 
 
+});
+
+router.get('/allorder',checkLogin, async(req,res)=>{
+    const user = req.user;
+    const email = user.email;
+    
+    const data = {order_email: email}
+    const allreqs = await myorders(data);
+
+    if(allreqs.length > 0){
+
+        res.status(200).json(allreqs);
+    }else{
+        res.status(200).json({msg: 'No record found'});
+    }
 });
 
 router.post('/allreqs', async (req, res) => {

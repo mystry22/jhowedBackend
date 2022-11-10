@@ -20,7 +20,7 @@ const checkLogin = function(req,res,next){
       const actualToken = splitToken[1];
       jwt.verify(actualToken, process.env.TOKEN_SECRET, (err, decodedToken) => {
         if (err) {
-          console.log('invalid credentials');
+          res.status(404).json({msg:'Invalid user'});
         } else {
           req.user = decodedToken
           next();
@@ -29,7 +29,7 @@ const checkLogin = function(req,res,next){
     
       
     }catch(err){
-      console.log('err');
+      res.status(404).json({msg:'Invalid user'});
       
     }
   
