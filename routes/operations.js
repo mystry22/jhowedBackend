@@ -56,7 +56,7 @@ router.post('/requestdelivery', checkLogin, async (req, res) => {
     const email = user.email;
     // const img = await cloudinaryImage(req.body.img);
     // res.json('anything');
-    const avatarLink = 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.dribbble.com%2Fusers%2F713003%2Fscreenshots%2F14628152%2Fmedia%2F966ee1edbb776a33e52d94498bd54b3e.gif%3Fcompress%3D1%26resize%3D400x300%26vertical%3Dtop&imgrefurl=https%3A%2F%2Fdribbble.com%2Fshots%2F14628152-Courier&tbnid=xUEpOx5kKwjYFM&vet=12ahUKEwiMtZzhpaT7AhUHYxoKHd3SAdMQMygTegUIARDBAQ..i&docid=WcX_4sq9AZRsDM&w=400&h=300&itg=1&q=delivery%20bicycle%20image&ved=2ahUKEwiMtZzhpaT7AhUHYxoKHd3SAdMQMygTegUIARDBAQ'
+    const avatarLink = 'https://t3.ftcdn.net/jpg/02/62/29/32/360_F_262293274_BgGtnhf3gAZJkEt5vMj88oUK5Pwjguji.jpg';
     const data = {
         order_id: new Date().getTime(),
         order_email: email,
