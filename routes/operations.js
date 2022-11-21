@@ -4,49 +4,6 @@ const { requestDelivery, allrequests, myorders} = require('../model/Delivery_Mod
 const { signToken, checkLogin } = require('../functions/jwt');
 const { comparePassword } = require('../functions/encrypt');
 const {toDate} = require('../functions/Helper_functions');
-const { cloudinary } = require('../functions/cloudinary')
-
-const uploadImage = async (image) => {
-
-    const validImageArray = ['jpg', 'png', 'gif', 'pdf'];
-    let msg = '';
-    if (image) {
-        const file = image.img;
-        const imageName = new Date().getTime() + '_' + file.name;
-        const imagesize = file.size / (1024 * 1024);
-        const extention = imageName.split('.').pop();
-        if (validImageArray.includes(extention) && imagesize < 5000) {
-
-            await file.mv('./assets/' + imageName);
-            return imageName;
-        } else {
-            msg = 'Image Error';
-        }
-
-    } else {
-        msg = 'deli.jpeg';
-    }
-
-    return msg;
-
-}
-const cloudinaryImage = async (image) => {
-    try {
-
-        const response = await cloudinary.uploader.
-            upload(image, {
-                upload_preset: 'molenu',
-            });
-
-        if (response) {
-            return 'upload okay';
-        } else {
-            return 'upload not okay';
-        }
-    } catch (err) {
-        console.log(err);
-    }
-}
 
 
 
