@@ -24,7 +24,7 @@ app.use('/api/auth',auth);
 app.use('/api/deli',deli);
 
 
-const PORT = process.env.PORT ||3222;
+const PORT = process.env.PORT || 3222;
 
 app.listen(PORT, ()=>{
     console.log('listening to port ' + PORT);
