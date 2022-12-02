@@ -3,7 +3,7 @@ const router = express.Router();
 const { requestDelivery, allrequests, myorders} = require('../model/Delivery_Model');
 const { signToken, checkLogin } = require('../functions/jwt');
 const { comparePassword } = require('../functions/encrypt');
-const {toDate} = require('../functions/Helper_functions');
+const {toDate,contact} = require('../functions/Helper_functions');
 
 
 
@@ -61,6 +61,23 @@ router.get('/allorder',checkLogin, async(req,res)=>{
 router.post('/allreqs', async (req, res) => {
     const allreqs = await allrequests();
     res.status(200).json(allreqs);
+});
+
+router.post('/mailus',async(req,res)=>{
+    const data = {
+        full_name:req.body.name,
+        subject:req.body.subject,
+        mail:req.body.mail,
+        msg:req.body.msg,
+    }
+
+    const response = await contact(data);
+    if(response == 'OK'){
+        res.status(200).json({msg:'Your request has been sent we will revert shortly'})
+    }else{
+        res.status(401).json({msg:'unable to complete your request at the moment'});
+    }
+
 });
 
 module.exports = router;

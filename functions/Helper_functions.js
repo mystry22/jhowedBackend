@@ -4,16 +4,17 @@ const nodemailer = require('nodemailer');
 // Email Transporter
 const transport =()=>{
     const transport = nodemailer.createTransport({
-        host: "mail.fink.com.ng",
-        port: 587,
-        secure: false, 
+        host: "mail.j-howed.com.ng",
+        port: 465,
+        secure: true, 
         auth: {
-          user: "talkto@fink.com.ng",
-          pass: 'Mystry.22'
+          user: "hello@j-howed.com.ng",
+          pass: 'hE!!0@Howed00'
         },
         tls:{
             rejectUnauthorized:false
         }
+        
       });
 
       return transport;
@@ -85,22 +86,23 @@ const updateMailOTP = async(to)=>{
    
 }
 
-const orderNotification = async(by,fro)=>{
+const contact = async(data)=>{
     let msg = '';
     const transporter = transport();
     const custom = `
-                <h2>Molenu New Order</h2><br /> <br />
+                <h2>Request Via Mail</h2><br /> <br />
 
                  Hi Dear Team, <br /><br />
+                 ${data.msg} <br /><br />
 
-                    A new order has been requested by ${by} with email address ${fro} <br /> Kindly signin to your account and start processing <br /> <br />
+                    A new order has been requested by ${data.full_name} with email address ${data.mail} <br /> Kindly signin to your account and start processing <br /> <br />
                     
                 Best Regards <br /><br />
                  `;
    const mailOptions = {
-       from: '#Order Notification <talkto@fink.com.ng>',
+       from: '#Service Request Notification <hello@j-howed.com.ng>',
        to: 'alanemehenry6@gmail.com',
-       subject: "Molenu Order Notification",
+       subject: data.subject,
        html: custom
    }
 
@@ -123,7 +125,7 @@ const custNotification = async(name,ref,to)=>{
                 Best Regards
                  `;
    const mailOptions = {
-       from: '#Order Notification <talkto@fink.com.ng>',
+       from: '#Order Notification <hello@j-howed.com.ng>',
        to: to,
        subject: "Molenu Order Notification",
        html: custom
@@ -224,6 +226,6 @@ module.exports.updateMailOTP = updateMailOTP;
 module.exports.toDate = toDate;
 module.exports.mailContact = mailContact;
 module.exports.actiAlert = actiAlert;
-module.exports.orderNotification =orderNotification;
+module.exports.contact =contact;
 module.exports.custNotification =custNotification;
 module.exports.welcome =welcome;
