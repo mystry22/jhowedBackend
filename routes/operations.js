@@ -6,6 +6,9 @@ const { comparePassword } = require('../functions/encrypt');
 const {toDate,contact} = require('../functions/Helper_functions');
 
 
+router.get('/hello',(req,res)=>{
+    res.json({msg: 'Hello'});
+});
 
 router.post('/requestdelivery', checkLogin, async (req, res) => {
 
